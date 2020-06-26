@@ -50,7 +50,11 @@
     "predeploy:docs": "npm run docs:build",
     "deploy:docs": "firebase deploy --only hosting:docs",
     "docker:dev": "docker-compose -f docker-compose-dev.yml up -d --build",
-    "docker": "docker-compose up -d --build"
+    "docker": "docker-compose up -d --build",
+    "docker:login": "docker login",
+    "docker:build": "docker build -t arseniks/reactive-resume .",
+    "docker:publish": "docker push arseniks/reactive-resume",
+    "docker:prod": "npm run docker:login && npm run docker:build && npm run docker:publish"
   },
   "eslintConfig": {
     "extends": "react-app"
