@@ -52,9 +52,12 @@
     "docker:dev": "docker-compose -f docker-compose-dev.yml up -d --build",
     "docker": "docker-compose up -d --build",
     "docker:login": "docker login",
+    "docker:build-dev": "docker build -t nas.orion:5000/reactive-resume .",
     "docker:build": "docker build -t arseniks/reactive-resume .",
+    "docker:publish-dev": "docker push nas.orion:5000/reactive-resume",
     "docker:publish": "docker push arseniks/reactive-resume",
-    "docker:prod": "npm run docker:login && npm run docker:build && npm run docker:publish"
+    "docker:deploy-dev": "npm run docker:build-dev && npm run docker:publish-dev",
+    "docker:deploy": "npm run docker:login && npm run docker:build && npm run docker:publish"
   },
   "eslintConfig": {
     "extends": "react-app"

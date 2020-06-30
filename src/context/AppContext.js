@@ -7,8 +7,8 @@ import demoData from '../assets/demo/data.json';
 import { move } from '../utils';
 
 const initialState = {
-  version: 2,
   data: {
+    version: 2,
     profile: {
       heading: 'Profile',
       photo: '',
@@ -107,8 +107,8 @@ const initialState = {
 const checkImportedDataType = (payload) => {
   // Reactive-Resume format
   if ("data" in payload && "theme" in payload) {
-    if ("version" in payload)
-      return `v${payload.version}`;
+    if ("version" in payload.data)
+      return `v${payload.data.version}`;
     return 'v1';
   }
   // LinkedIn format
